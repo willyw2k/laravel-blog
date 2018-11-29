@@ -91,9 +91,9 @@ class Post extends Resource
                 ->rules('required')
                 ->sortable(),
 
-            BelongsTo::make('Category'),
+            BelongsTo::make('Category')->nullable(),
 
-            BelongsTo::make('User', 'user'),
+            BelongsTo::make('User', 'user')->nullable(),
 
             BelongsToMany::make('Tags', 'Tags'),
 
