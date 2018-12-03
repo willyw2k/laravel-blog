@@ -36,7 +36,6 @@ class Post extends Model implements HasMedia
     public function registerMediaCollections()
     {
         $this->addMediaCollection('image')->singleFile();
-//        $this->addMediaCollection('gallery');
     }
 
 
@@ -49,7 +48,7 @@ class Post extends Model implements HasMedia
 
         // Auto Excerpt
         if (empty($this->excerpt)) {
-            $this->excerpt = $this->get_excerpt($this->body, config('laravel-blog.excerpt_word_length'),
+            $this->excerpt = get_blog_excerpt($this->body, config('laravel-blog.excerpt_word_length'),
                 config('laravel-blog.excerpt_ellipses'));
         }
 
@@ -82,20 +81,8 @@ class Post extends Model implements HasMedia
         return $this->belongsTo(Category::class);
     }
 
-
-    private function get_excerpt($content, $length = 40, $more = '...')
-    {
-        $excerpt = strip_tags(trim($content));
-        $words = str_word_count($excerpt, 2);
-        if (count($words) > $length) {
-            $words = array_slice($words, 0, $length, true);
-            end($words);
-            $position = key($words) + strlen(current($words));
-            $excerpt = substr($excerpt, 0, $position) . $more;
-        }
-        return $excerpt;
+    public function wordCount(){
+        return get_blog_word_count($this->body);
     }
-
-
 
 }

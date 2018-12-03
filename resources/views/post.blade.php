@@ -13,6 +13,5 @@
 
 <div style="max-width:50%; margin-left: auto; margin-right: auto; ">
     {!! $post->body !!}
-
 </div>
 
