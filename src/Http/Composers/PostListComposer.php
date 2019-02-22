@@ -17,7 +17,7 @@ class PostListComposer
                 $query->where('publish_until', '>=', Carbon::now())
                     ->orWhere('publish_until', null);
             })
-            ->orderBy('publish_at', 'desc')
+            ->orderBy('publish_at', config('laravel-blog.sort_order', 'desc'))
             ->paginate(config('laravel-blog.pagination'));
     }
 
