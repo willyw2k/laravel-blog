@@ -2,6 +2,7 @@
 
 namespace Daikazu\LaravelBlog;
 
+use Daikazu\LaravelBlog\Console\Commands\ImportCommand;
 use Daikazu\LaravelBlog\Console\Commands\InstallCommand;
 use Daikazu\LaravelBlog\Http\Composers\CategoryListComposer;
 use Daikazu\LaravelBlog\Http\Composers\PostListComposer;
@@ -67,6 +68,7 @@ class ServiceProvider extends \Illuminate\Support\ServiceProvider
     {
         $this->commands([
             InstallCommand::class,
+            ImportCommand::class,
         ]);
     }
 
