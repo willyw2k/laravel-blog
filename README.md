@@ -2,8 +2,6 @@
 
 [![Build Status](https://travis-ci.org/daikazu/laravel-blog.svg?branch=master)](https://travis-ci.org/daikazu/laravel-blog)
 <!--[![styleci](https://styleci.io/repos/CHANGEME/shield)](https://styleci.io/repos/CHANGEME)-->
-<!--[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/daikazu/laravel-blog/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/daikazu/laravel-blog/?branch=master)-->
-<!--[![SensioLabsInsight](https://insight.sensiolabs.com/projects/CHANGEME/mini.png)](https://insight.sensiolabs.com/projects/CHANGEME)-->
 <!--[![Coverage Status](https://coveralls.io/repos/github/daikazu/laravel-blog/badge.svg?branch=master)](https://coveralls.io/github/daikazu/laravel-blog?branch=master)-->
 
 <!--[![Packagist](https://img.shields.io/packagist/v/daikazu/laravel-blog.svg)](https://packagist.org/packages/daikazu/laravel-blog)-->
@@ -21,23 +19,10 @@ composer require daikazu/laravel-blog
 
 ### Register Service Provider
 
-**Note! This and next step are optional if you use laravel>=5.5 with package
-auto discovery feature.**
+**Note! If you use laravel>=5.7 this package will auto discovery.**
 
-Add service provider to `config/app.php` in `providers` section
-```php
-Daikazu\LaravelBlog\ServiceProvider::class,
-```
-
-### Register Facade
-
-Register package facade in `config/app.php` in `aliases` section
-```php
-Daikazu\LaravelBlog\Facades\LaravelBlog::class,
-```
 
 ### Publish Configuration File
-
 
 This will setup all necessary composer packages, migations, and publish all required files. If Nova is installed follow the installer prompts
 
@@ -47,15 +32,12 @@ php artisan blog:install
 
 ## Usage
 
-
 Views are located in `resources/views/vendor/laravel-blog/` folder. Basic inline styles are added for example. Style to your hearts content.
-
 
 
 ### Wordpress Import
 
 Download XML Export file from your WordPress Blog `Tools > Export > All Content`.
-
 
 ```bash
 php artisan blog:import --wp --images wordpress_export.2019-02-28.xml
