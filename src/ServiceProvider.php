@@ -2,28 +2,27 @@
 
 namespace Daikazu\LaravelBlog;
 
-use Daikazu\LaravelBlog\Console\Commands\InstallCommand;
-use Daikazu\LaravelBlog\Http\Composers\CategoryListComposer;
-use Daikazu\LaravelBlog\Http\Composers\PostListComposer;
-use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\View;
+use Illuminate\Support\Facades\Route;
+use Daikazu\LaravelBlog\Console\Commands\ImportCommand;
+use Daikazu\LaravelBlog\Console\Commands\InstallCommand;
+use Daikazu\LaravelBlog\Http\Composers\PostListComposer;
+use Daikazu\LaravelBlog\Http\Composers\CategoryListComposer;
 
 class ServiceProvider extends \Illuminate\Support\ServiceProvider
 {
-    const CONFIG_PATH = __DIR__ . '/../config/laravel-blog.php';
+    const CONFIG_PATH = __DIR__.'/../config/laravel-blog.php';
 
     public function boot()
     {
-
         if ($this->app->runningInConsole()) {
             $this->registerPublishing();
         }
 
-        $this->loadViewsFrom(__DIR__ . '/../resources/views', 'laravel-blog');
+        $this->loadViewsFrom(__DIR__.'/../resources/views', 'laravel-blog');
 
         $this->registerResources();
         $this->registerComposers();
-
     }
 
     public function register()
@@ -39,12 +38,11 @@ class ServiceProvider extends \Illuminate\Support\ServiceProvider
 
         $this->registerRoutes();
 
-        $this->loadMigrationsFrom(__DIR__ . '/../database/migrations');
+        $this->loadMigrationsFrom(__DIR__.'/../database/migrations');
 
         if ($this->app->runningInConsole()) {
             $this->registerCommands();
         }
-
     }
 
     private function registerPublishing()
@@ -54,22 +52,21 @@ class ServiceProvider extends \Illuminate\Support\ServiceProvider
         ], 'laravel-blog-config');
 
         $this->publishes([
-            __DIR__ . '/../database/migrations' => database_path('migrations'),
+            __DIR__.'/../database/migrations' => database_path('migrations'),
         ], 'laravel-blog-migrations');
 
         $this->publishes([
-            __DIR__ . '/../resources/views' => resource_path('views/vendor/laravel-blog'),
+            __DIR__.'/../resources/views' => resource_path('views/vendor/laravel-blog'),
         ], 'laravel-blog-views');
-
     }
 
     private function registerCommands()
     {
         $this->commands([
             InstallCommand::class,
+            ImportCommand::class,
         ]);
     }
-
 
     protected function registerResources()
     {
@@ -78,12 +75,12 @@ class ServiceProvider extends \Illuminate\Support\ServiceProvider
 
     private function registerRoutes()
     {
-        if($this->app->routesAreCached()){
+        if ($this->app->routesAreCached()) {
             return;
         }
 
         Route::group($this->routeConfiguration(), function () {
-            $this->loadRoutesFrom(__DIR__ . '/../routes/web.php');
+            $this->loadRoutesFrom(__DIR__.'/../routes/web.php');
         });
     }
 
@@ -103,6 +100,4 @@ class ServiceProvider extends \Illuminate\Support\ServiceProvider
         View::composer('laravel-blog::index', PostListComposer::class);
         View::composer('laravel-blog::category', CategoryListComposer::class);
     }
-
-
 }

@@ -2,17 +2,20 @@
 
 namespace Daikazu\LaravelBlog;
 
-use GeneaLabs\LaravelModelCaching\Traits\Cachable;
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Str;
+use Illuminate\Database\Eloquent\Model;
+use GeneaLabs\LaravelModelCaching\Traits\Cachable;
 
 class Category extends Model
 {
-
     use Cachable;
 
     protected $guarded = ['id'];
 
+    protected $fillable = [
+        'name',
+        'slug',
+    ];
 
     public function save(array $option = [])
     {
@@ -22,11 +25,8 @@ class Category extends Model
         parent::save();
     }
 
-
     public function posts()
     {
         return $this->hasMany(Post::class);
     }
-
-
 }
