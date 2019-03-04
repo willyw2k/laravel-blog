@@ -43,12 +43,13 @@ php artisan blog:install
 Views are located in `resources/views/vendor/laravel-blog/` folder. Basic inline styles are added for example. Style to your hearts content.
 
 
-<<<<<<< HEAD
+
 ## TODO
+- pages
 - category parent/children relations
 - tagging
 - tests
-=======
+
 ### Wordpress Import
 
 Download XML Export file from your WordPress Blog `Tools > Export > All Content`.
@@ -60,8 +61,6 @@ the `--images` will import featured image to storage using `spatie/laravel-media
 
 **Note: This Does Not make any changes to the Post body. Any images and or links in content will have to be updated as needed.**
 
-
->>>>>>> f0efbd6ea9a430ed9d7fbf0080aec16b1018c0a8
 
 ## Security
 
