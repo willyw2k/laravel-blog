@@ -13,6 +13,11 @@ class Category extends Model
 
     protected $guarded = ['id'];
 
+    protected $fillable = [
+        'name',
+        'slug',
+    ];
+
 
     public function save(array $option = [])
     {
