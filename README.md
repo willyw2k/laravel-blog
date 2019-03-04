@@ -10,7 +10,15 @@
 <!--[![Packagist](https://poser.pugx.org/daikazu/laravel-blog/d/total.svg)](https://packagist.org/packages/daikazu/laravel-blog)-->
 <!--[![Packagist](https://img.shields.io/packagist/l/daikazu/laravel-blog.svg)](https://packagist.org/packages/daikazu/laravel-blog)-->
 
-Package description: CHANGE ME
+Package description: Quickly implement a Blog in you your Laravel Application
+<br>
+
+### WORK IN PROGRESS
+
+Basic blog functionality is working but there is still more left to do. 
+
+
+
 
 ## Installation
 
@@ -47,10 +55,13 @@ php artisan blog:install
 
 ## Usage
 
-
 Views are located in `resources/views/vendor/laravel-blog/` folder. Basic inline styles are added for example. Style to your hearts content.
 
 
+## TODO
+- category parent/children relations
+- tagging
+- tests
 
 ## Security
 
