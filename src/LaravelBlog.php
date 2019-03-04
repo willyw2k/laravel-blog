@@ -2,6 +2,6 @@
 
 namespace Daikazu\LaravelBlog;
 
-class LaravelBlog{
-
+class LaravelBlog
+{
 }

@@ -2,7 +2,6 @@
 
 namespace Daikazu\LaravelBlog;
 
-
 class User extends \App\User
 {
     public function posts()

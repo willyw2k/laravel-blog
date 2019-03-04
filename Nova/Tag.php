@@ -2,12 +2,10 @@
 
 namespace App\Nova;
 
-use Laravel\Nova\Fields\BelongsToMany;
-use Laravel\Nova\Fields\HasMany;
 use Laravel\Nova\Fields\ID;
 use Illuminate\Http\Request;
 use Laravel\Nova\Fields\Text;
-use Laravel\Nova\Http\Requests\NovaRequest;
+use Laravel\Nova\Fields\BelongsToMany;
 
 class Tag extends Resource
 {
@@ -47,7 +45,7 @@ class Tag extends Resource
 
             Text::make('Tag', 'tag'),
 
-            BelongsToMany::make('Posts', 'posts')
+            BelongsToMany::make('Posts', 'posts'),
 
         ];
     }

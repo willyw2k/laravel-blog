@@ -2,13 +2,13 @@
 
 namespace Daikazu\LaravelBlog;
 
-use GeneaLabs\LaravelModelCaching\Traits\Cachable;
-use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Auth;
+use Spatie\MediaLibrary\Models\Media;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Builder;
 use Spatie\MediaLibrary\HasMedia\HasMedia;
 use Spatie\MediaLibrary\HasMedia\HasMediaTrait;
-use Spatie\MediaLibrary\Models\Media;
+use GeneaLabs\LaravelModelCaching\Traits\Cachable;
 
 class Post extends Model implements HasMedia
 {
@@ -38,11 +38,10 @@ class Post extends Model implements HasMedia
         $this->addMediaCollection('image')->singleFile();
     }
 
-
     public function save(array $option = [])
     {
         // If no author has been assigned, assign the current user's id as the author of the post
-        if (!$this->user_id && Auth::user()) {
+        if (! $this->user_id && Auth::user()) {
             $this->user_id = Auth::user()->id;
         }
 
@@ -54,7 +53,6 @@ class Post extends Model implements HasMedia
 
         parent::save();
     }
-
 
     public function userId()
     {
@@ -81,8 +79,8 @@ class Post extends Model implements HasMedia
         return $this->belongsTo(Category::class);
     }
 
-    public function wordCount(){
+    public function wordCount()
+    {
         return get_blog_word_count($this->body);
     }
-
 }

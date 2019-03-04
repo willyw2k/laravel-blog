@@ -3,12 +3,11 @@
 namespace Daikazu\LaravelBlog\Http\Composers;
 
 use Carbon\Carbon;
-use Daikazu\LaravelBlog\Post;
 use Illuminate\View\View;
+use Daikazu\LaravelBlog\Post;
 
 class PostListComposer
 {
-
     public function __construct(Post $posts)
     {
         $this->posts = $posts->where('is_published', true)
@@ -21,11 +20,8 @@ class PostListComposer
             ->paginate(config('laravel-blog.pagination'));
     }
 
-
     public function compose(View $view)
     {
         $view->with('posts', $this->posts);
     }
-
-
 }
