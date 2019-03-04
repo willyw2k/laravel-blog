@@ -2,9 +2,9 @@
 
 namespace Daikazu\LaravelBlog\Tests;
 
-use Daikazu\LaravelBlog\Facades\LaravelBlog;
-use Daikazu\LaravelBlog\ServiceProvider;
 use Orchestra\Testbench\TestCase;
+use Daikazu\LaravelBlog\ServiceProvider;
+use Daikazu\LaravelBlog\Facades\LaravelBlog;
 
 class LaravelBlogTest extends TestCase
 {

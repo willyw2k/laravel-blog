@@ -8,6 +8,6 @@ return [
     'excerpt_word_length' => env('BLOG_EXCERPT_WORD_LENGTH', 30),
     'excerpt_ellipses' => env('BLOG_EXCERPT_ELLIPSES', '...'),
 
-    'sort_order' => 'desc'
+    'sort_order' => 'desc',
 
 ];
