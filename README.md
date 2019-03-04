@@ -52,6 +52,20 @@ Views are located in `resources/views/vendor/laravel-blog/` folder. Basic inline
 
 
 
+### Wordpress Import
+
+Download XML Export file from your WordPress Blog `Tools > Export > All Content`.
+
+
+```bash
+php artisan blog:import --wp --images wordpress_export.2019-02-28.xml
+```
+the `--images` will import featured image to storage using `spatie/laravel-medialibrary`
+
+**Note: This Does Not make any changes to the Post body. Any images and or links in content will have to be updated as needed.**
+
+
+
 ## Security
 
 If you discover any security related issues, please email 

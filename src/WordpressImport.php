@@ -30,6 +30,7 @@ class WordpressImport
         set_time_limit($this->timeout);
         ini_set('max_execution_time', $this->timeout);
         ini_set('default_socket_timeout', $this->timeout);
+        ini_set('memory_limit', '256M'); // Needed for large images
 
         $this->xml = simplexml_load_file($this->xml, 'SimpleXMLElement', LIBXML_NOCDATA);
 
@@ -193,6 +194,7 @@ class WordpressImport
                     ]);
                     $post->save();
 
+                    // Save images
                     if (!empty($image) && $this->copyImages) {
                         $post->addMediaFromUrl($image)->toMediaCollection('image')->responsiveImages();
                     }
@@ -216,15 +218,7 @@ class WordpressImport
 
         }
 
-        if ($type == 'post') {
 
-            $posts = new Post($this->posts);
-            $posts->save();
-
-//            \TCG\Voyager\Models\Post::insert($this->posts);
-        } elseif ($type == 'page') {
-//            \TCG\Voyager\Models\Page::insert($this->pages);
-        }
 
 
     }
