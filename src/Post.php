@@ -2,18 +2,17 @@
 
 namespace Daikazu\LaravelBlog;
 
-use Illuminate\Support\Facades\Auth;
-use Spatie\MediaLibrary\Models\Media;
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Auth;
 use Spatie\MediaLibrary\HasMedia\HasMedia;
 use Spatie\MediaLibrary\HasMedia\HasMediaTrait;
-use GeneaLabs\LaravelModelCaching\Traits\Cachable;
+use Spatie\MediaLibrary\Models\Media;
+
 
 class Post extends Model implements HasMedia
 {
     use HasMediaTrait;
-//    use HasMediaTrait, Cachable;
 
     protected $guarded = ['id'];
 
@@ -41,7 +40,7 @@ class Post extends Model implements HasMedia
     public function save(array $option = [])
     {
         // If no author has been assigned, assign the current user's id as the author of the post
-        if (! $this->user_id && Auth::user()) {
+        if (!$this->user_id && Auth::user()) {
             $this->user_id = Auth::user()->id;
         }
 
