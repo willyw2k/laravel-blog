@@ -44,6 +44,22 @@ Views are located in `resources/views/vendor/laravel-blog/` folder. Basic inline
 
 
 
+### Nova Features
+
+
+#### Nova Trix Field
+This uses the Trix Field in Nova to handle image uploads. There is a scheduled task to handle clean up on that.
+
+add `BLOG_TASKS_ON=false` to your `.env` file to turn off
+
+
+
+
+
+
+
+
+
 ### Wordpress Import
 
 Download XML Export file from your WordPress Blog `Tools > Export > All Content`.

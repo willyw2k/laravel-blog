@@ -2,6 +2,7 @@
 
 namespace Daikazu\LaravelBlog;
 
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Auth;
@@ -52,6 +53,18 @@ class Post extends Model implements HasMedia
 
         parent::save();
     }
+
+
+    public function setPublishAtAttribute($value)
+    {
+        if ($value === null) {
+            $this->attributes['publish_at'] = Carbon::now();
+        } else {
+            $this->attributes['publish_at'] = $value;
+        }
+
+    }
+
 
     public function userId()
     {

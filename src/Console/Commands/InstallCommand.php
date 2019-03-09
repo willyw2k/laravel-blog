@@ -48,10 +48,10 @@ class InstallCommand extends Command
 
         $this->info('Publishing Migrations');
 
-        $this->call('vendor:publish', [
-            '--tag'   => 'laravel-blog-migrations',
-            '--force' => $this->option('force'),
-        ]);
+//        $this->call('vendor:publish', [
+//            '--tag'   => 'laravel-blog-migrations',
+//            '--force' => $this->option('force'),
+//        ]);
 
         $this->info('Publishing Views');
 
@@ -102,7 +102,7 @@ class InstallCommand extends Command
                 // Copy Nova Resources
 
                 file_put_contents(app_path('Nova/Category.php'),
-                    file_get_contents(__DIR__.'/../../../Nova/Category.php'));
+                file_get_contents(__DIR__.'/../../../Nova/Category.php'));
                 file_put_contents(app_path('Nova/Post.php'), file_get_contents(__DIR__.'/../../../Nova/Post.php'));
                 file_put_contents(app_path('Nova/Tag.php'), file_get_contents(__DIR__.'/../../../Nova/Tag.php'));
                 file_put_contents(app_path('Nova/User.php'), file_get_contents(__DIR__.'/../../../Nova/User.php'));
@@ -118,9 +118,9 @@ class InstallCommand extends Command
     private function updateComposerPackageArray(array $packages)
     {
         return array_merge([
-            'genealabs/laravel-model-caching' => '^0.3',
-            'spatie/laravel-medialibrary'     => '^7.0.0',
-            'spatie/laravel-view-components'  => '^1.1',
+//            'genealabs/laravel-model-caching' => '^0.3',
+//            'spatie/laravel-medialibrary'     => '^7.0.0',
+//            'spatie/laravel-view-components'  => '^1.1',
 
         ], Arr::except($packages, [
 
@@ -130,8 +130,8 @@ class InstallCommand extends Command
     private function updateNovaComposerPackageArray(array $packages)
     {
         return array_merge([
-            'benjaminhirsch/nova-slug-field'    => '^1.1',
-            'ebess/advanced-nova-media-library' => '^1.2',
+//            'benjaminhirsch/nova-slug-field'    => '^1.1',
+//            'ebess/advanced-nova-media-library' => '^1.2',
 
         ], Arr::except($packages, [
 

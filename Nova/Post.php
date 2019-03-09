@@ -65,7 +65,9 @@ class Post extends Resource
             Images::make('Main Image', 'image')
                 ->thumbnail('thumb'),
 
+
             Trix::make('Body', 'body')
+                ->withFiles(config('laravel-blog.file_disk'))
                 ->rules('required'),
 
             Textarea::make('Excerpt', 'excerpt')
@@ -78,7 +80,7 @@ class Post extends Resource
             Text::make('Seo Title', 'seo_title')
                 ->hideFromIndex(),
 
-            DateTime::make('Publish At', 'publish_at')->sortable(),
+            DateTime::make('When To Publish', 'publish_at')->sortable(),
 
             DateTime::make('Publish Until', 'publish_until')
                 ->sortable()

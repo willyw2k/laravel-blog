@@ -2,16 +2,16 @@
 
 namespace Daikazu\LaravelBlog;
 
-use Illuminate\Support\Facades\View;
-use Illuminate\Support\Facades\Route;
 use Daikazu\LaravelBlog\Console\Commands\ImportCommand;
 use Daikazu\LaravelBlog\Console\Commands\InstallCommand;
-use Daikazu\LaravelBlog\Http\Composers\PostListComposer;
 use Daikazu\LaravelBlog\Http\Composers\CategoryListComposer;
+use Daikazu\LaravelBlog\Http\Composers\PostListComposer;
+use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\View;
 
 class ServiceProvider extends \Illuminate\Support\ServiceProvider
 {
-    const CONFIG_PATH = __DIR__.'/../config/laravel-blog.php';
+    const CONFIG_PATH = __DIR__ . '/../config/laravel-blog.php';
 
     public function boot()
     {
@@ -19,7 +19,7 @@ class ServiceProvider extends \Illuminate\Support\ServiceProvider
             $this->registerPublishing();
         }
 
-        $this->loadViewsFrom(__DIR__.'/../resources/views', 'laravel-blog');
+        $this->loadViewsFrom(__DIR__ . '/../resources/views', 'laravel-blog');
 
         $this->registerResources();
         $this->registerComposers();
@@ -36,13 +36,29 @@ class ServiceProvider extends \Illuminate\Support\ServiceProvider
             return new LaravelBlog();
         });
 
+
         $this->registerRoutes();
 
-        $this->loadMigrationsFrom(__DIR__.'/../database/migrations');
+        $this->loadMigrationsFrom(__DIR__ . '/../database/migrations');
 
         if ($this->app->runningInConsole()) {
             $this->registerCommands();
         }
+
+
+        if (config('laravel-blog.schedule_tasks_running')) {
+
+            // If Nova Service provider Class Exists then it's okay to run the task
+            if (class_exists('App\Providers\NovaServiceProvider')) {
+                $this->app->singleton('laravel-blog.console.kernel', function ($app) {
+                    $dispatcher = $app->make(\Illuminate\Contracts\Events\Dispatcher::class);
+                    return new \Daikazu\LaravelBlog\Console\Kernel($app, $dispatcher);
+                });
+
+                $this->app->make('laravel-blog.console.kernel');
+            }
+        }
+
     }
 
     private function registerPublishing()
@@ -52,11 +68,11 @@ class ServiceProvider extends \Illuminate\Support\ServiceProvider
         ], 'laravel-blog-config');
 
         $this->publishes([
-            __DIR__.'/../database/migrations' => database_path('migrations'),
+            __DIR__ . '/../database/migrations' => database_path('migrations'),
         ], 'laravel-blog-migrations');
 
         $this->publishes([
-            __DIR__.'/../resources/views' => resource_path('views/vendor/laravel-blog'),
+            __DIR__ . '/../resources/views' => resource_path('views/vendor/laravel-blog'),
         ], 'laravel-blog-views');
     }
 
@@ -80,7 +96,7 @@ class ServiceProvider extends \Illuminate\Support\ServiceProvider
         }
 
         Route::group($this->routeConfiguration(), function () {
-            $this->loadRoutesFrom(__DIR__.'/../routes/web.php');
+            $this->loadRoutesFrom(__DIR__ . '/../routes/web.php');
         });
     }
 
