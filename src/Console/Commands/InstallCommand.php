@@ -2,8 +2,8 @@
 
 namespace Daikazu\LaravelBlog\Console\Commands;
 
-use Illuminate\Console\Command;
 use Illuminate\Support\Arr;
+use Illuminate\Console\Command;
 use Illuminate\Support\Facades\File;
 
 class InstallCommand extends Command
@@ -103,11 +103,11 @@ class InstallCommand extends Command
 
                 file_put_contents(
                     app_path('Nova/Category.php'),
-                    file_get_contents(__DIR__ . '/../../../Nova/Category.php')
+                    file_get_contents(__DIR__.'/../../../Nova/Category.php')
                 );
-                file_put_contents(app_path('Nova/Post.php'), file_get_contents(__DIR__ . '/../../../Nova/Post.php'));
-                file_put_contents(app_path('Nova/Tag.php'), file_get_contents(__DIR__ . '/../../../Nova/Tag.php'));
-                file_put_contents(app_path('Nova/User.php'), file_get_contents(__DIR__ . '/../../../Nova/User.php'));
+                file_put_contents(app_path('Nova/Post.php'), file_get_contents(__DIR__.'/../../../Nova/Post.php'));
+                file_put_contents(app_path('Nova/Tag.php'), file_get_contents(__DIR__.'/../../../Nova/Tag.php'));
+                file_put_contents(app_path('Nova/User.php'), file_get_contents(__DIR__.'/../../../Nova/User.php'));
 
                 $this->info('Nova scaffolding installed successfully.');
             }
@@ -142,7 +142,7 @@ class InstallCommand extends Command
 
     private function updateComposerPackages($dev = false, $nova = false)
     {
-        if (!file_exists(base_path('composer.json'))) {
+        if (! file_exists(base_path('composer.json'))) {
             return;
         }
 
@@ -164,7 +164,7 @@ class InstallCommand extends Command
 
         file_put_contents(
             base_path('composer.json'),
-            json_encode($packages, JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT) . PHP_EOL
+            json_encode($packages, JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT).PHP_EOL
         );
 
         shell_exec('composer update');

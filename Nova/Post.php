@@ -65,7 +65,6 @@ class Post extends Resource
             Images::make('Main Image', 'image')
                 ->thumbnail('thumb'),
 
-
             Trix::make('Body', 'body')
                 ->withFiles(config('laravel-blog.file_disk'))
                 ->rules('required'),
