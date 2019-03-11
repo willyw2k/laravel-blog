@@ -2,8 +2,8 @@
 
 namespace Daikazu\LaravelBlog\Http\Composers;
 
-use Daikazu\LaravelBlog\Post;
 use Illuminate\View\View;
+use Daikazu\LaravelBlog\Post;
 
 class PostListComposer
 {

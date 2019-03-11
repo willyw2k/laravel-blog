@@ -1,6 +1,6 @@
 <?php
 
-if (!function_exists('get_blog_excerpt')) {
+if (! function_exists('get_blog_excerpt')) {
     /**
      * @param $content
      * @param null $length
@@ -16,7 +16,7 @@ if (!function_exists('get_blog_excerpt')) {
                 $words = array_slice($words, 0, $length, true);
                 end($words);
                 $position = key($words) + strlen(current($words));
-                $excerpt = substr($excerpt, 0, $position) . $more;
+                $excerpt = substr($excerpt, 0, $position).$more;
             }
         }
 
@@ -24,7 +24,7 @@ if (!function_exists('get_blog_excerpt')) {
     }
 }
 
-if (!function_exists('get_blog_word_count')) {
+if (! function_exists('get_blog_word_count')) {
     /**
      * @param $content
      * @return mixed
@@ -37,7 +37,7 @@ if (!function_exists('get_blog_word_count')) {
     }
 }
 
-if (!function_exists('demote_html_header_tags')) {
+if (! function_exists('demote_html_header_tags')) {
     /**
      * @param string $html
      * @return mixed
@@ -48,13 +48,13 @@ if (!function_exists('demote_html_header_tags')) {
         $demotedHeaderTags = [];
 
         foreach (range(100, 1) as $index) {
-            $originalHeaderTags[] = '<h' . $index . '>';
+            $originalHeaderTags[] = '<h'.$index.'>';
 
-            $originalHeaderTags[] = '</h' . $index . '>';
+            $originalHeaderTags[] = '</h'.$index.'>';
 
-            $demotedHeaderTags[] = '<h' . ($index + 1) . '>';
+            $demotedHeaderTags[] = '<h'.($index + 1).'>';
 
-            $demotedHeaderTags[] = '</h' . ($index + 1) . '>';
+            $demotedHeaderTags[] = '</h'.($index + 1).'>';
         }
 
         return str_ireplace($originalHeaderTags, $demotedHeaderTags, $html);
