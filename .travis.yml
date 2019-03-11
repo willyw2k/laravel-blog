@@ -23,7 +23,6 @@ install:
 
 
 script:
-
+  - composer run phpunit
 
 after_script:
-
