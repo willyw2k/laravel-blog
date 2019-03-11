@@ -55,16 +55,6 @@ class Post extends Model implements HasMedia
     }
 
 
-    public function setPublishAtAttribute($value)
-    {
-        if ($value === null) {
-            $this->attributes['publish_at'] = Carbon::now();
-        } else {
-            $this->attributes['publish_at'] = $value;
-        }
-
-    }
-
 
     public function userId()
     {
@@ -75,6 +65,13 @@ class Post extends Model implements HasMedia
     {
         return $query->where('is_published', true);
     }
+
+    public function scopePublishedDate(Builder $query)
+    {
+        return $query->where('is_published', true);
+    }
+
+
 
     public function user()
     {

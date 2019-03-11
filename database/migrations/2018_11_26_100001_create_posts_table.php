@@ -24,7 +24,6 @@ class CreatePostsTable extends Migration
             $table->string('seo_title')->nullable();
             $table->dateTime('publish_at')->nullable();
             $table->dateTime('publish_until')->nullable();
-            $table->boolean('is_published')->default(false);
             $table->unsignedBigInteger('category_id')->nullable();
             $table->boolean('featured')->default(false);
             $table->timestamps();

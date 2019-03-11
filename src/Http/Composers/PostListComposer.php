@@ -10,6 +10,7 @@ class PostListComposer
 {
     public function __construct(Post $posts)
     {
+
         $this->posts = $posts->where('is_published', true)
             ->where('publish_at', '<=', Carbon::now())
             ->where(function ($query) {
