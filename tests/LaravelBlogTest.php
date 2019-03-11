@@ -34,6 +34,12 @@ class LaravelBlogTest extends Orchestra
         $app['config']->set('view.paths', [__DIR__ . '/resources/views']);
     }
 
+    protected function resolveApplicationConsoleKernel($app)
+    {
+        $app->singleton( 'Illuminate\Contracts\Console\Kernel' , \Daikazu\LaravelBlog\Console\Kernel::class);
+    }
+
+
 
     protected function getPackageProviders($app)
     {
