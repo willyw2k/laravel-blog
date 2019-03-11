@@ -10,7 +10,6 @@ use Spatie\MediaLibrary\HasMedia\HasMedia;
 use Spatie\MediaLibrary\HasMedia\HasMediaTrait;
 use Spatie\MediaLibrary\Models\Media;
 
-
 class Post extends Model implements HasMedia
 {
     use HasMediaTrait;
@@ -47,13 +46,15 @@ class Post extends Model implements HasMedia
 
         // Auto Excerpt
         if (empty($this->excerpt)) {
-            $this->excerpt = get_blog_excerpt($this->body, config('laravel-blog.excerpt_word_length'),
-                config('laravel-blog.excerpt_ellipses'));
+            $this->excerpt = get_blog_excerpt(
+                $this->body,
+                config('laravel-blog.excerpt_word_length'),
+                config('laravel-blog.excerpt_ellipses')
+            );
         }
 
         parent::save();
     }
-
 
 
     public function userId()
@@ -63,15 +64,28 @@ class Post extends Model implements HasMedia
 
     public function scopePublished(Builder $query)
     {
-        return $query->where('is_published', true);
+        return $query->whereNotNull('publish_at')
+            ->where('publish_at', '<=', Carbon::now())
+            ->where(function ($query) {
+                $query->where('publish_until', '>=', Carbon::now())
+                    ->orWhere('publish_until', null);
+            });
     }
 
-    public function scopePublishedDate(Builder $query)
+    public function getPublishedDateAttribute()
     {
-        return $query->where('is_published', true);
+        return $this->publish_at->toFormattedDateString();
     }
 
+    public function getPublishedDateTimeAttribute()
+    {
+        return $this->publish_at->toDayDateTimeString();
+    }
 
+    public function getAuthorAttribute()
+    {
+        return $this->user->name;
+    }
 
     public function user()
     {

@@ -7,7 +7,6 @@ use Laravel\Nova\Trix\PruneStaleAttachments;
 
 class Kernel extends \App\Console\Kernel
 {
-
     protected function schedule(Schedule $schedule)
     {
         parent::schedule($schedule);
@@ -17,5 +16,4 @@ class Kernel extends \App\Console\Kernel
             (new PruneStaleAttachments)();
         })->daily();
     }
-
 }

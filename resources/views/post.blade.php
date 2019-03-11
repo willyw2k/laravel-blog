@@ -1,5 +1,8 @@
 <h1 style="text-align: center">{{$post->title}}</h1>
 
+{{$post->published_date}}
+{{$post->author}}
+
 <div>
     @if( count($post->getMedia('image')))
         {{ $post->getFirstMedia('image')('responsive', [

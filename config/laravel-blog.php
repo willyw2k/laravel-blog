@@ -13,7 +13,6 @@ return [
     // Disk for storing file uploads
     'file_disk' => env('BLOG_FILE_DISK', 'public'),
 
-
     //
     'schedule_tasks_running' => env('BLOG_TASKS_ON', true)
 

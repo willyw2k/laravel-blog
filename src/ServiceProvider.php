@@ -46,6 +46,8 @@ class ServiceProvider extends \Illuminate\Support\ServiceProvider
         }
 
 
+
+
         if (config('laravel-blog.schedule_tasks_running')) {
 
             // If Nova Service provider Class Exists then it's okay to run the task
@@ -58,7 +60,6 @@ class ServiceProvider extends \Illuminate\Support\ServiceProvider
                 $this->app->make('laravel-blog.console.kernel');
             }
         }
-
     }
 
     private function registerPublishing()

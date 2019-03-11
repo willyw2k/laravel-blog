@@ -43,7 +43,6 @@ php artisan blog:install
 Views are located in `resources/views/vendor/laravel-blog/` folder. Basic inline styles are added for example. Style to your hearts content.
 
 
-
 ### Nova Features
 
 
@@ -51,12 +50,6 @@ Views are located in `resources/views/vendor/laravel-blog/` folder. Basic inline
 This uses the Trix Field in Nova to handle image uploads. There is a scheduled task to handle clean up on that.
 
 add `BLOG_TASKS_ON=false` to your `.env` file to turn off
-
-
-
-
-
-
 
 
 
@@ -76,7 +69,7 @@ the `--images` will import featured image to storage using `spatie/laravel-media
 - pages
 - category parent/children relations
 - tagging
-- tests
+- more tests
 
 
 

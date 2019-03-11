@@ -58,6 +58,5 @@ if (!function_exists('demote_html_header_tags')) {
         }
 
         return str_ireplace($originalHeaderTags, $demotedHeaderTags, $html);
-
     }
 }

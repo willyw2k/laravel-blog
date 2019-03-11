@@ -86,8 +86,6 @@ class Post extends Resource
                 ->sortable()
                 ->hideFromIndex(),
 
-            Boolean::make('Is Published', 'is_published')->sortable(),
-
             Boolean::make('Featured', 'featured')
                 ->rules('required')
                 ->sortable(),

@@ -2,21 +2,14 @@
 
 namespace Daikazu\LaravelBlog\Http\Composers;
 
-use Carbon\Carbon;
-use Illuminate\View\View;
 use Daikazu\LaravelBlog\Post;
+use Illuminate\View\View;
 
 class PostListComposer
 {
     public function __construct(Post $posts)
     {
-
-        $this->posts = $posts->where('is_published', true)
-            ->where('publish_at', '<=', Carbon::now())
-            ->where(function ($query) {
-                $query->where('publish_until', '>=', Carbon::now())
-                    ->orWhere('publish_until', null);
-            })
+        $this->posts = $posts->published()
             ->orderBy('publish_at', config('laravel-blog.sort_order', 'desc'))
             ->paginate(config('laravel-blog.pagination'));
     }
