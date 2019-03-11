@@ -1,6 +1,6 @@
 # Laravel Blog
 
-[![Build Status](https://travis-ci.org/daikazu/laravel-blog.svg?branch=master)](https://travis-ci.org/daikazu/laravel-blog)
+[![Build Status](https://travis-ci.org/Daikazu/laravel-blog.svg?branch=master)](https://travis-ci.org/Daikazu/laravel-blog)
 <!--[![styleci](https://styleci.io/repos/CHANGEME/shield)](https://styleci.io/repos/CHANGEME)-->
 <!--[![Coverage Status](https://coveralls.io/repos/github/daikazu/laravel-blog/badge.svg?branch=master)](https://coveralls.io/github/daikazu/laravel-blog?branch=master)-->
 
