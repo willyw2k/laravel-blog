@@ -50,6 +50,11 @@ This uses the Trix Field in Nova to handle image uploads. There is a scheduled t
 
 add `BLOG_TASKS_ON=false` to your `.env` file to turn off
 
+Trix Field File Upload Disk:
+
+```dotenv
+BLOG_FILE_DISK=s3_public # Default Public
+```
 
 
 ### Wordpress Import
