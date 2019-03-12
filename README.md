@@ -73,6 +73,7 @@ the `--images` will import featured image to storage using `spatie/laravel-media
 - pages
 - category parent/children relations
 - tagging
+- json API
 - more tests
 
 
