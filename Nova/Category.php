@@ -43,6 +43,10 @@ class Category extends Resource
             ID::make()->sortable(),
 
             Text::make('Name', 'name'),
+
+            Text::make('Slug')
+                ->hideWhenCreating()
+                ->hideWhenUpdating(),
         ];
     }
 
