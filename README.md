@@ -1,10 +1,10 @@
 # Laravel Blog
 
 [![Build Status](https://travis-ci.org/Daikazu/laravel-blog.svg?branch=master)](https://travis-ci.org/Daikazu/laravel-blog)
-<!--[![styleci](https://styleci.io/repos/CHANGEME/shield)](https://styleci.io/repos/CHANGEME)-->
+[![styleci](https://styleci.io/repos/159544237/shield)](https://styleci.io/repos/159544237)
 <!--[![Coverage Status](https://coveralls.io/repos/github/daikazu/laravel-blog/badge.svg?branch=master)](https://coveralls.io/github/daikazu/laravel-blog?branch=master)-->
 
-<!--[![Packagist](https://img.shields.io/packagist/v/daikazu/laravel-blog.svg)](https://packagist.org/packages/daikazu/laravel-blog)-->
+[![Packagist](https://img.shields.io/packagist/v/daikazu/laravel-blog.svg)](https://packagist.org/packages/daikazu/laravel-blog)
 <!--[![Packagist](https://poser.pugx.org/daikazu/laravel-blog/d/total.svg)](https://packagist.org/packages/daikazu/laravel-blog)-->
 <!--[![Packagist](https://img.shields.io/packagist/l/daikazu/laravel-blog.svg)](https://packagist.org/packages/daikazu/laravel-blog)-->
 
@@ -17,10 +17,9 @@ Basic blog functionality is working but there is still more left to do.
 
 
 
-
 ## Installation
 
-Install via composer
+Require the package using composer
 ```bash
 composer require daikazu/laravel-blog
 ```
@@ -78,10 +77,19 @@ the `--images` will import featured image to storage using `spatie/laravel-media
 If you discover any security related issues, please email 
 instead of using the issue tracker.
 
+
+
+## Contributing
+Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
+
+Please make sure to update tests as appropriate.
+
+
+
 ## Credits
 
-- [](https://github.com/daikazu/laravel-blog)
+- [Mike Wall](https://github.com/daikazu)
 - [All contributors](https://github.com/daikazu/laravel-blog/graphs/contributors)
 
 This package is bootstrapped with the help of
-[melihovv/laravel-package-generator](https://github.com/melihovv/laravel-package-generator).
+[melihovv/laravel-package-generator](./LICENSE).
