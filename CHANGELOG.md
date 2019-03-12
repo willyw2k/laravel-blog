@@ -6,7 +6,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 ### Changed
+
+
+## [0.1.2] - 2019-13-12
+### Changed
 - Fix Category slug not displaying in Nova
+- misc package documentation
 
 ## [0.1.1] - 2019-03-11
 ### Added
@@ -14,5 +19,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 
 
-[Unreleased]: https://github.com/daikazu.laravel-log/compare/v0.1.1...HEAD
+[Unreleased]: https://github.com/daikazu.laravel-log/compare/v0.1.2...HEAD
+[0.1.2]: https://github.com/daikazu.laravel-log/compare/v0.1.1...v0.1.2
 [0.1.1]: https://github.com/daikazu.laravel-log/compare/v0.0.1...v0.1.1
