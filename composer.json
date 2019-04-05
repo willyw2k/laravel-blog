@@ -16,7 +16,7 @@
   "require": {
     "php": ">=7.2",
     "benjaminhirsch/nova-slug-field": "^1.1",
-    "ebess/advanced-nova-media-library": "^2.5",
+    "ebess/advanced-nova-media-library": "^2.4",
     "spatie/laravel-medialibrary": "^7.6"
   },
   "require-dev": {
